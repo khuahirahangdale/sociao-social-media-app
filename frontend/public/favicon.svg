@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="sociao" x1="5" x2="43" y1="4" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#bd9cf4"/>
+      <stop offset="1" stop-color="#7152bb"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="15" fill="url(#sociao)"/>
+  <text x="24" y="34" fill="#fff" font-family="Arial,sans-serif" font-size="35" font-weight="700" text-anchor="middle">s</text>
+</svg>

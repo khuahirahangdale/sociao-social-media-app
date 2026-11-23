@@ -1,0 +1,131 @@
+.share-dialog-backdrop {
+  position: fixed;
+  z-index: 70;
+  inset: 0;
+  display: grid;
+  align-items: end;
+  background: rgb(21 16 28 / 48%);
+}
+
+.share-dialog {
+  display: flex;
+  max-height: min(80dvh, 680px);
+  flex-direction: column;
+  overflow: hidden;
+  padding: 14px 14px calc(14px + env(safe-area-inset-bottom, 0px));
+  border-radius: 20px 20px 0 0;
+  background: #fff;
+}
+
+.share-dialog-heading {
+  display: flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.share-dialog-heading h2 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.share-dialog-heading button {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: #f5f3f6;
+  font-size: 24px;
+}
+
+.share-search {
+  margin: 10px 0;
+}
+
+.share-search input {
+  width: 100%;
+  min-height: 42px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 10px;
+  background: #f3f2f4;
+  font-size: 13px;
+}
+
+.share-people {
+  overflow-y: auto;
+}
+
+.share-person {
+  display: flex;
+  min-height: 59px;
+  align-items: center;
+  gap: 10px;
+}
+
+.share-avatar.avatar {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  object-fit: cover;
+}
+
+.share-person > span:nth-child(2) {
+  display: grid;
+  min-width: 0;
+  flex: 1;
+  gap: 3px;
+}
+
+.share-person strong {
+  font-size: 12px;
+}
+
+.share-person small,
+.share-note,
+.share-empty {
+  color: #89828e;
+  font-size: 11px;
+}
+
+.share-person button {
+  min-width: 62px;
+  min-height: 34px;
+  border: 0;
+  border-radius: 8px;
+  background: #7152bb;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.share-person button:disabled {
+  opacity: .6;
+}
+
+.share-error {
+  color: #a64e64;
+  font-size: 12px;
+}
+
+.share-note {
+  margin: 10px 0 0;
+  line-height: 1.4;
+}
+
+.share-empty {
+  padding: 16px 0;
+  text-align: center;
+}
+
+@media (min-width: 540px) {
+  .share-dialog-backdrop {
+    align-items: center;
+    justify-items: center;
+  }
+
+  .share-dialog {
+    width: min(440px, calc(100% - 32px));
+    border-radius: 18px;
+  }
+}

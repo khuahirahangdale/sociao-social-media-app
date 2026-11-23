@@ -1,0 +1,319 @@
+.post-card {
+  padding: 14px 15px 3px;
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+}
+
+.post-header {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 10px;
+}
+
+.post-header .avatar {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  font-size: 11px;
+}
+
+.post-header .post-author-avatar {
+  object-fit: cover;
+}
+
+.post-author-open {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.post-header > .post-author-open:first-child {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.post-author {
+  display: grid;
+  min-width: 0;
+  flex: 1;
+  gap: 2px;
+}
+
+.post-author > strong {
+  overflow: hidden;
+  color: #302c35;
+  font-size: 13px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.post-author > span {
+  overflow: hidden;
+  color: #89838e;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.post-handle,
+.post-author time {
+  color: inherit;
+}
+
+.more-button {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #514c55;
+  cursor: pointer;
+}
+
+.more-button svg {
+  width: 21px;
+  height: 21px;
+  fill: currentColor;
+}
+
+.post-options-menu {
+  position: absolute;
+  z-index: 8;
+  top: 42px;
+  right: 2px;
+  display: grid;
+  width: 164px;
+  overflow: hidden;
+  padding: 5px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 26px rgb(34 24 48 / 18%);
+}
+
+.post-options-menu button {
+  min-height: 42px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #39333f;
+  font-size: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.post-options-menu button:hover {
+  background: #f5f2f8;
+}
+
+.post-options-menu .post-option-danger,
+.post-edit-dialog .post-option-danger {
+  color: #c74661;
+}
+
+.post-dialog-backdrop {
+  position: fixed;
+  z-index: 75;
+  inset: 0;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  padding: 18px;
+  background: rgb(20 16 24 / 50%);
+}
+
+.post-edit-dialog {
+  display: grid;
+  width: min(100%, 410px);
+  gap: 14px;
+  padding: 18px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 20px 60px rgb(0 0 0 / 20%);
+}
+
+.post-edit-dialog h2 {
+  margin: 0;
+  color: #302b34;
+  font-size: 17px;
+}
+
+.post-edit-dialog textarea {
+  width: 100%;
+  min-height: 130px;
+  padding: 11px;
+  border: 1px solid #e4dfe8;
+  border-radius: 10px;
+  resize: vertical;
+  font-size: 14px;
+}
+
+.post-edit-dialog p {
+  margin: 0;
+  color: #6f6876;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.post-edit-dialog p[role="alert"] {
+  color: #b9435b;
+}
+
+.post-edit-dialog > div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.post-edit-dialog > div button {
+  min-height: 40px;
+  padding: 0 13px;
+  border: 1px solid #e4dfe8;
+  border-radius: 9px;
+  background: #fff;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.post-edit-dialog > div button[type="submit"],
+.post-edit-dialog > div button:last-child:not(.post-option-danger) {
+  border-color: var(--purple-dark);
+  background: var(--purple-dark);
+  color: #fff;
+}
+
+.post-edit-dialog > div button.post-option-danger {
+  border-color: #efcbd2;
+  background: #fff;
+  color: #c74661;
+}
+
+.post-content {
+  margin: 11px 0 12px;
+  color: #37333a;
+  font-size: 14px;
+  line-height: 1.52;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.post-media {
+  display: block;
+  width: calc(100% + 30px);
+  max-height: 560px;
+  margin: 0 -15px;
+  background: #f0eef2;
+  object-fit: cover;
+}
+
+.post-media-error {
+  margin: 0;
+  padding: 34px 18px;
+  background: #f0eef2;
+  color: #77717d;
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.post-reactions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 35px;
+  color: #79737e;
+  font-size: 11px;
+}
+
+.reaction-heart {
+  display: grid;
+  width: 17px;
+  height: 17px;
+  place-items: center;
+  border-radius: 50%;
+  background: #ed6c8c;
+  color: #fff;
+  font-size: 10px;
+}
+
+.post-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 42px;
+  border-top: 1px solid #f1eff2;
+}
+
+.post-action {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #4a454e;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.post-action svg {
+  width: 23px;
+  height: 23px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.post-action:hover,
+.post-action.is-liked {
+  color: #e04f77;
+}
+
+.post-action.is-liked svg {
+  fill: #e04f77;
+}
+
+.post-action:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.post-action.save-action {
+  margin-left: auto;
+}
+
+.post-action.save-action.is-bookmarked {
+  color: var(--purple-dark);
+}
+
+.post-action.save-action.is-bookmarked svg {
+  fill: #eee8fb;
+}
+
+@media (max-width: 350px) {
+  .post-card {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .post-media {
+    width: calc(100% + 24px);
+    margin-right: -12px;
+    margin-left: -12px;
+  }
+}

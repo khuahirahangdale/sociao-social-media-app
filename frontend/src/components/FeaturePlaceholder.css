@@ -1,0 +1,35 @@
+.feature-placeholder {
+  display: grid;
+  min-height: 55dvh;
+  align-content: center;
+  justify-items: center;
+  padding: 30px 28px;
+  text-align: center;
+}
+
+.feature-placeholder-icon {
+  display: grid;
+  width: 62px;
+  height: 62px;
+  place-items: center;
+  border: 1px solid #e8e2f0;
+  border-radius: 22px;
+  background: #f7f3ff;
+  color: var(--purple-dark);
+  font-size: 28px;
+}
+
+.feature-placeholder h1 {
+  margin: 18px 0 7px;
+  color: var(--ink);
+  font-size: 20px;
+  letter-spacing: -0.5px;
+}
+
+.feature-placeholder p {
+  max-width: 280px;
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 13px;
+  line-height: 1.6;
+}

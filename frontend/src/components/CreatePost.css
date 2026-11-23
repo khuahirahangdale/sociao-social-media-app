@@ -1,0 +1,158 @@
+.create-post {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 18px 16px;
+  background: #fff;
+}
+
+.create-post > .avatar {
+  width: 43px;
+  height: 43px;
+  border: 0;
+  font-size: 12px;
+}
+
+.create-post > .composer-avatar {
+  object-fit: cover;
+}
+
+.create-post-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.create-post textarea {
+  display: block;
+  width: 100%;
+  min-height: 150px;
+  resize: vertical;
+  padding: 4px 0 15px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.create-post textarea::placeholder {
+  color: #aaa3b3;
+}
+
+.create-post textarea:disabled {
+  opacity: 0.7;
+}
+
+.composer-error {
+  margin: 0 0 9px;
+  color: #a64e64;
+  font-size: 12px;
+}
+
+.create-post-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 45px;
+  border-top: 1px solid #f0edf2;
+}
+
+.composer-media-fields {
+  display: grid;
+  gap: 10px;
+  padding: 0 0 12px;
+}
+
+.composer-media-fields label {
+  display: grid;
+  gap: 5px;
+  color: #77717d;
+  font-size: 11px;
+}
+
+.composer-media-fields input {
+  min-height: 40px;
+  padding: 0 10px;
+  border: 1px solid #e6e2e9;
+  border-radius: 9px;
+  font-size: 13px;
+}
+
+.composer-media-preview {
+  display: block;
+  width: 100%;
+  max-height: 320px;
+  margin: 0 0 12px;
+  border-radius: 10px;
+  background: #f0eef2;
+  object-fit: contain;
+}
+
+.composer-media-error {
+  margin: 0 0 12px;
+  color: #a64e64;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.composer-count {
+  color: #9a939e;
+  font-size: 11px;
+}
+
+.composer-submit-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.composer-media-choice {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #806bb1;
+  font-size: 19px;
+}
+
+.composer-media-choice[aria-pressed="true"] {
+  background: #f0ebfb;
+}
+
+.composer-media-choice svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.post-button {
+  min-width: 83px;
+  min-height: 37px;
+  padding: 0 15px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--purple-dark);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 160ms ease, opacity 160ms ease;
+}
+
+.post-button:hover:not(:disabled) {
+  background: #6042a7;
+}
+
+.post-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
