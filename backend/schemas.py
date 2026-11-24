@@ -4,6 +4,13 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 
+def is_uploaded_media_url(value: str) -> bool:
+    return re.fullmatch(
+        r"/uploads/[0-9a-f]{32}\.(?:jpg|png|gif|webp|mp4|webm|mov)",
+        value,
+    ) is not None
+
+
 class SignupRequest(BaseModel):
     username: str = Field(min_length=3, max_length=50)
     email: str = Field(min_length=3, max_length=255)
@@ -85,10 +92,10 @@ class PostCreateRequest(BaseModel):
         if value is None or not value.strip():
             return None
         value = value.strip()
-        if not value.startswith(("https://", "http://")) and not (
+        if not value.startswith(("https://", "http://")) and not is_uploaded_media_url(value) and not (
             value.startswith("/audio/") and value.endswith(".wav")
         ):
-            raise ValueError("Media URLs must be public URLs or a supported Sociao audio file.")
+            raise ValueError("Media URLs must be public URLs or a supported Sociao media file.")
         return value
 
     @field_validator("music_line")
@@ -193,10 +200,10 @@ class StoryCreateRequest(BaseModel):
         if value is None or not value.strip():
             return None
         value = value.strip()
-        if not value.startswith(("https://", "http://")) and not (
+        if not value.startswith(("https://", "http://")) and not is_uploaded_media_url(value) and not (
             value.startswith("/audio/") and value.endswith(".wav")
         ):
-            raise ValueError("Media URLs must be public URLs or a supported Sociao audio file.")
+            raise ValueError("Media URLs must be public URLs or a supported Sociao media file.")
         return value
 
     @field_validator("music_line")

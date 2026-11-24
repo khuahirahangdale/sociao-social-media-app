@@ -80,6 +80,68 @@
   font-size: 13px;
 }
 
+.composer-file-button {
+  position: relative;
+  display: grid;
+  width: fit-content;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid #e6e2e9;
+  border-radius: 9px;
+  background: #fff;
+  color: #806bb1;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.composer-file-button.is-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.composer-file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.composer-file-button:focus-within {
+  outline: 2px solid #806bb1;
+}
+
+.composer-drop-zone {
+  display: grid;
+  min-height: 60px;
+  place-items: center;
+  padding: 10px;
+  border: 1px dashed #c9bfd8;
+  border-radius: 9px;
+  color: #77717d;
+  font-size: 12px;
+  text-align: center;
+}
+
+.composer-drop-zone.is-dragging {
+  border-color: #806bb1;
+  background: #f0ebfb;
+  color: #6042a7;
+}
+
+.composer-file-name {
+  overflow: hidden;
+  margin: -4px 0 0;
+  color: #77717d;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .composer-media-preview {
   display: block;
   width: 100%;

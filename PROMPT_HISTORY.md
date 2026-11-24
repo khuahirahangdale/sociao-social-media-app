@@ -744,3 +744,79 @@ when i open the video i see the bottom footer with home video create inbox and p
 
 - `frontend/src/App.jsx`
 - `PROMPT_HISTORY.md`
+
+## P013 — Upload Local Images and Videos in Posts
+
+**AI Tool:** Copilot SDK in VS Code
+**Purpose:** Let users select an image or video from their device instead of requiring a public URL.
+**Status:** Implemented; frontend build, lint, backend compilation, and upload API checks passed.
+
+### Exact Prompt
+
+as i observed in the post section there is only a url section present to post a video or imagewhy cant we select from local as well there has to be an option to select from local as well
+
+### Implementation
+
+- Added an authenticated `POST /media/upload` endpoint. It saves supported image/video files under `backend/uploads`, limits uploads to 50 MB, and returns a URL that the post API can store.
+- Mounted the uploads folder as static media so uploaded files can be displayed in feeds.
+- Allowed the generated `/uploads/<random-filename>` URL format in post/story media validation.
+- Added multipart upload support to the frontend API helper.
+- Added a device file picker, local image/video preview, filename display, size/type validation, and upload-on-share behavior to the Create Post composer. URL posting remains available.
+- Added `python-multipart` to backend requirements.
+
+### Files Created
+
+- `backend/media_routes.py`
+
+### Files Modified
+
+- `backend/main.py`
+- `backend/schemas.py`
+- `backend/requirements.txt`
+- `frontend/src/api.js`
+- `frontend/src/App.jsx`
+- `frontend/src/components/CreatePost.jsx`
+- `frontend/src/components/CreatePost.css`
+- `PROMPT_HISTORY.md`
+
+### Tool Used
+
+Copilot SDK in VS Code; workspace inspection tools, `apply_patch`, `npm run build`, `npm run lint`, Python `compileall`, and FastAPI `TestClient`.
+
+### Verification and Results
+
+- Frontend production build passed.
+- Frontend lint passed.
+- Backend modules compiled successfully.
+- FastAPI upload test returned 201 for an image; the returned static media URL served the uploaded bytes with HTTP 200.
+- Uploading a file and creating a post with its returned URL both passed in an isolated in-memory database test.
+- Unsupported text file upload was rejected with HTTP 415.
+- The shared browser currently shows the sign-in screen, so device-picker interaction and posting while signed in still need a manual check.
+
+## P014 — Fix Local Media Picker and Drag-and-Drop
+
+**AI Tool:** Copilot SDK in VS Code
+**Purpose:** Fix the device picker activation and support dragging an image/video into the post composer.
+**Status:** Implemented; frontend checks passed.
+
+### Exact Prompt
+
+ehen i select a picture from file exporter the open option is not working or after dragging the image drop is not working
+
+### Implementation
+
+- Changed the device picker to a visible label directly associated with the file input instead of opening a `display: none` input via scripted click.
+- Added a drag-and-drop target that recognizes supported image/video MIME types, selects the matching post media type, and shows its preview.
+- Preserved URL media entry and added drag-over/drop visual feedback.
+
+### Files Modified
+
+- `frontend/src/components/CreatePost.jsx`
+- `frontend/src/components/CreatePost.css`
+- `PROMPT_HISTORY.md`
+
+### Verification
+
+- `cd frontend && npm run build` — passed.
+- `cd frontend && npm run lint` — passed.
+- Device file-picker and desktop drag/drop still require manual browser interaction after signing in.

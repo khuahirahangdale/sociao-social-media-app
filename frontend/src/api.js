@@ -32,7 +32,8 @@ function getErrorMessage(data, fallback) {
 
 async function request(path, { method = "GET", body, authenticated = true } = {}) {
   const headers = {};
-  if (body !== undefined) {
+  const isFormData = body instanceof FormData;
+  if (body !== undefined && !isFormData) {
     headers["Content-Type"] = "application/json";
   }
 
@@ -44,7 +45,7 @@ async function request(path, { method = "GET", body, authenticated = true } = {}
   const response = await fetch(`${API_BASE_URL}${path}`, {
     method,
     headers,
-    body: body === undefined ? undefined : JSON.stringify(body),
+    body: body === undefined ? undefined : isFormData ? body : JSON.stringify(body),
   });
 
   if (response.status === 204) {
@@ -113,6 +114,13 @@ export const api = {
       method: "POST",
       body: typeof post === "string" ? { content: post } : post,
     });
+  },
+
+  uploadMedia(file) {
+    const formData = new FormData();
+    formData.append("file", file);
+    return request("/media/upload", { method: "POST", body: formData })
+      .then((media) => ({ ...media, url: new URL(media.url, API_BASE_URL).href }));
   },
 
   updatePost(postId, post) {

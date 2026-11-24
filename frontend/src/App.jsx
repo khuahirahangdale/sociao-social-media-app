@@ -498,7 +498,7 @@ function App() {
                 <h1>Create post</h1>
                 <p>Share a moment with your community.</p>
               </div>
-              <CreatePost user={currentUser} onSubmit={addPost} />
+              <CreatePost user={currentUser} onSubmit={addPost} onUploadMedia={api.uploadMedia} />
             </section>
           )}
 

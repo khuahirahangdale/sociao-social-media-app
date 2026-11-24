@@ -4,13 +4,16 @@ import os
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 import auth_routes
+import media_routes
 import message_routes
 import models
 import post_routes
 import social_routes
 from database import initialize_database
+from media_routes import MEDIA_DIRECTORY
 
 
 @asynccontextmanager
@@ -39,9 +42,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 app.include_router(auth_routes.router)
+app.include_router(media_routes.router)
 app.include_router(post_routes.router)
 app.include_router(social_routes.router)
 app.include_router(message_routes.router)
+MEDIA_DIRECTORY.mkdir(parents=True, exist_ok=True)
+app.mount("/uploads", StaticFiles(directory=MEDIA_DIRECTORY), name="uploads")
 
 
 @app.get("/")
