@@ -143,21 +143,18 @@ Sociao uses SQLite with SQLAlchemy for database management.
 
 The following features are planned or still require complete implementation and testing:
 
-- 💬 Comments and threaded replies.
+- 💬 Threaded replies on comments.
 - 📖 Stories and live functionality.
-- 🎬 Full-screen video viewer and interactions.
-- ✉️ Messaging inbox and chat.
-- 👥 Followers and following management.
-- ✏️ Edit profile functionality.
-- 🔔 Notifications and application settings.
+- 🎬 Video posts creation.
+- 🔔 Notifications.
 - 📤 Complete media upload and storage workflow.
+- 📌 Post creation with local images and videos.
 
 ## 🔮 Future Improvements
 
 - Complete all remaining social media screens.
 - Improve mobile and desktop responsiveness.
 - Implement complete media upload and video support.
-- Add comments, messaging and social interactions.
 - Improve application performance and security.
 - Add automated testing and deployment.
 
