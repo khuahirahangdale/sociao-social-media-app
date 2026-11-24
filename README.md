@@ -117,3 +117,23 @@ The application uses SQLite with SQLAlchemy.
 ## Project Status
 
 Sociao is under active development. The authentication and basic post-management functionality have been implemented, while the remaining social media features are being developed and tested.
+
+## Screenshots
+
+### Login Page
+![Login Page](screenshots/Login.png)
+
+### Create Account
+![Create Account](screenshots/CreateAccount.png)
+
+### Home Page
+![Home Page](screenshots/Home_Page.png)
+
+### Profile Page
+![Profile Page](screenshots/Profile.png)
+
+### Messages
+![Messages](screenshots/Messeges.png)
+
+### Settings
+![Settings](screenshots/Settings.png)
